@@ -3,7 +3,6 @@ applications:
 - name: notify-email-provider-stub
 
   memory: 256M
-  instances: 1
 
   buildpacks:
     - python_buildpack
