@@ -2,6 +2,8 @@ SHELL := /bin/bash
 
 PORT := 6301
 
+NOTIFY_CREDENTIALS ?= ~/.notify-credentials
+
 .PHONY: run
 run:
 	$(if ${NOTIFICATION_QUEUE_PREFIX},,$(error Must specify NOTIFICATION_QUEUE_PREFIX))
@@ -20,7 +22,12 @@ staging:
 .PHONY: generate-manifest
 generate-manifest:
 	$(if ${CF_SPACE},,$(error Must specify CF_SPACE))
-	@sed -e "s/{{CF_SPACE}}/${CF_SPACE}/" manifest.yml.tpl
+	$(if $(shell which gpg2), $(eval export GPG=gpg2), $(eval export GPG=gpg))
+	$(if ${GPG_PASSPHRASE_TXT}, $(eval export DECRYPT_CMD=echo -n $$$${GPG_PASSPHRASE_TXT} | ${GPG} --quiet --batch --passphrase-fd 0 --pinentry-mode loopback -d), $(eval export DECRYPT_CMD=${GPG} --quiet --batch -d))
+	@jinja2 --strict manifest.yml.j2 \
+		-D CF_SPACE=${CF_SPACE} \
+	    --format=yaml \
+	    <(${DECRYPT_CMD} ${NOTIFY_CREDENTIALS}/credentials/${CF_SPACE}/paas/environment-variables.gpg) 2>&1
 
 .PHONY: cf-push
 cf-push:
