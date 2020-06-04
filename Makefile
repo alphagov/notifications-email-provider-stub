@@ -1,9 +1,11 @@
 SHELL := /bin/bash
 
+PORT := 6301
+
 .PHONY: run
 run:
 	$(if ${NOTIFICATION_QUEUE_PREFIX},,$(error Must specify NOTIFICATION_QUEUE_PREFIX))
-	gunicorn --bind 0.0.0.0:6301 wsgi:app
+	gunicorn --bind 0.0.0.0:${PORT} --worker-class=eventlet --workers=2 wsgi:app
 
 .PHONY: preview
 preview:

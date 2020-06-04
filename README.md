@@ -47,7 +47,7 @@ This will mean that the API will use the `AwsSesStubClient` automatically.
 
 ## Scaling
 
-You may need to scale up the number of instances to handle the load you point at this stub. Initial testing using Vegeta shows that to handle 400 requests per second with a mean response time around 100ms requires somewhere between 20-30 instances.
+You may need to scale up the number of instances to handle the load you point at this stub. Initial testing using Vegeta shows that to handle 400 requests per second with a 50th percentile response time under 100ms you need about 10-20 instances.
 
 ```
 cf scale notify-email-provider-stub -i 25
