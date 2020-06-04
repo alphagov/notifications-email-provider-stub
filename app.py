@@ -7,8 +7,7 @@ import uuid
 from celery import Celery
 from flask import Flask, jsonify
 
-QUEUE_PREFIX = os.environ['QUEUE_PREFIX']
-QUEUE_NAME = QUEUE_PREFIX + "ses-callbacks"
+QUEUE_NAME = os.environ['NOTIFICATION_QUEUE_PREFIX'] + "ses-callbacks"
 
 
 CONFIG = {

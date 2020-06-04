@@ -2,7 +2,8 @@ SHELL := /bin/bash
 
 .PHONY: run
 run:
-	QUEUE_PREFIX=local gunicorn --bind 0.0.0.0:6301 wsgi:app
+	$(if ${NOTIFICATION_QUEUE_PREFIX},,$(error Must specify NOTIFICATION_QUEUE_PREFIX))
+	gunicorn --bind 0.0.0.0:6301 wsgi:app
 
 .PHONY: preview
 preview:

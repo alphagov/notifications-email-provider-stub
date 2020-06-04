@@ -11,4 +11,4 @@ applications:
     - route: notify-email-provider-stub-{{CF_SPACE}}.cloudapps.digital
 
   env:
-    QUEUE_PREFIX: {{CF_SPACE}}
+    NOTIFICATION_QUEUE_PREFIX: {{CF_SPACE}}

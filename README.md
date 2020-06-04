@@ -16,13 +16,11 @@ To run locally
 
 ```
 pip install -r requirements.txt
-make run
+NOTIFICATION_QUEUE_PREFIX=<your-queue-prefix> make run
 ```
 Then visit http://localhost:6301/ to see it running
 
 ## Deploy
-
-Should only be deployed to preview and staging environments. It will not work on a local development environment because we do not support SES callbacks on local environments (there is no Lambda function or SQS queue to process them).
 
 To deploy:
 
