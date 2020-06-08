@@ -1,0 +1,16 @@
+---
+applications:
+- name: notify-email-provider-stub
+
+  memory: 256M
+
+  buildpacks:
+    - python_buildpack
+
+  routes:
+    - route: notify-email-provider-stub-{{ CF_SPACE }}.cloudapps.digital
+
+  env:
+    NOTIFICATION_QUEUE_PREFIX: '{{ CF_SPACE }}'
+    AWS_ACCESS_KEY_ID: '{{ AWS_ACCESS_KEY_ID }}'
+    AWS_SECRET_ACCESS_KEY: '{{ AWS_SECRET_ACCESS_KEY }}'
