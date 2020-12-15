@@ -29,14 +29,14 @@ To deploy:
 
 ## How to make the API use this email provider stub
 
-You will need to set the environment variable `SES_STUB_URL` on the API in your chosen environment, for example:
+You will need to set the environment variable `SES_STUB_URL` for API apps in your chosen environment, for example:
 
 ```
-cf set-env notify-api SES_STUB_URL https://notify-email-provider-stub-preview.cloudapps.digital/ses
-cf restage notify-api
+cf set-env APP-NAME SES_STUB_URL https://notify-email-provider-stub-staging.cloudapps.digital/ses
+cf restage APP-NAME
 ```
 
-This will mean that the API will use the `AwsSesStubClient` automatically.
+It is suggested to turn it on for minimum the `notify-api`, `notify-delivery-worker-sender` and `notify-delivery-worker-retry-tasks`. By not turning it on for `notify-delivery-worker-internal`, which is responsible for delivering MFA codes, it will mean you can still log into the environment.
 
 ## Scaling
 
