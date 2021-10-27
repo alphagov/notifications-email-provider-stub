@@ -15,7 +15,7 @@ bootstrap:
 .PHONY: run
 run:
 	$(if ${NOTIFICATION_QUEUE_PREFIX},,$(error Must specify NOTIFICATION_QUEUE_PREFIX))
-	gunicorn --bind 0.0.0.0:${PORT} --worker-class=eventlet --workers=2 wsgi:app
+	FLASK_DEBUG=true flask run -p 6301
 
 .PHONY: preview
 preview:
