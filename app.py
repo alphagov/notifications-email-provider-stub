@@ -16,7 +16,6 @@ CONFIG = {
         'region': 'eu-west-1',
         'visibility_timeout': 310,
     },
-    'CELERY_TASK_SERIALIZER': 'json'
 }
 
 app = Flask(__name__)
