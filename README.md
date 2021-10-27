@@ -1,12 +1,12 @@
 # notifications-email-provider-stub
 
-## What this does
 During load testing, instead of sending requests to AWS SES to send emails we want to stub them out so that we don't incur unnecessary costs.
 
-When the API tries to send an email, instead of using Boto and talking to AWS SES, you can use the `AwsSesStubClient` to send an HTTP POST request to this stub app to mimic the behaviour of SES. 
+When the API tries to send an email, instead of using Boto and talking to AWS SES, you can use the `AwsSesStubClient` to send an HTTP POST request to this stub app to mimic the behaviour of SES.
 
-When this stub app receives a POST request from the API to send an email, it will
-- put a task on the ses-callback queue with a fake SES callback 
+When this stub app receives a POST request from the API to send an email, it will:
+
+- put a task on the ses-callback queue with a fake SES callback
 - respond with a fake `messageID` to be used as the reference from SES
 
 ## To run the application
