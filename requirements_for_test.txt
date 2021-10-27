@@ -1,0 +1,4 @@
+-r requirements.txt
+
+jinja2-cli[yaml]==0.7.0
+PyYAML==5.4.1

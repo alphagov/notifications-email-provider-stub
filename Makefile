@@ -4,6 +4,10 @@ PORT := 6301
 
 NOTIFY_CREDENTIALS ?= ~/.notify-credentials
 
+.PHONY: bootstrap
+bootstrap:
+	pip install -r requirements_for_test.txt
+
 .PHONY: run
 run:
 	$(if ${NOTIFICATION_QUEUE_PREFIX},,$(error Must specify NOTIFICATION_QUEUE_PREFIX))
