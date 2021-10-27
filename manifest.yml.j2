@@ -8,9 +8,9 @@ applications:
     - python_buildpack
 
   routes:
-    - route: notify-email-provider-stub-{{ CF_SPACE }}.cloudapps.digital
+    - route: notify-email-provider-stub-{{ environment }}.cloudapps.digital
 
   env:
-    NOTIFICATION_QUEUE_PREFIX: '{{ CF_SPACE }}'
+    NOTIFICATION_QUEUE_PREFIX: '{{ environment }}'
     AWS_ACCESS_KEY_ID: '{{ AWS_ACCESS_KEY_ID }}'
     AWS_SECRET_ACCESS_KEY: '{{ AWS_SECRET_ACCESS_KEY }}'

@@ -24,7 +24,7 @@ To deploy:
 
 ```
 make bootstrap
-make preview cf-push
+make preview cf-deploy
 ```
 
 ### How to make the API use this email provider stub
