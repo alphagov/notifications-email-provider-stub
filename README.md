@@ -35,13 +35,3 @@ You will need to set the environment variable `SES_STUB_URL` for API apps in you
 cf set-env APP-NAME SES_STUB_URL https://notify-email-provider-stub-staging.cloudapps.digital/ses
 cf restage APP-NAME
 ```
-
-It is suggested to turn it on for minimum the `notify-api`, `notify-delivery-worker-sender` and `notify-delivery-worker-retry-tasks`. By not turning it on for `notify-delivery-worker-internal`, which is responsible for delivering MFA codes, it will mean you can still log into the environment.
-
-### Scaling
-
-You may need to scale up the number of instances to handle the load you point at this stub. Initial testing using Vegeta shows that to handle 400 requests per second with a 50th percentile response time under 100ms you need about 10-20 instances.
-
-```
-cf scale notify-email-provider-stub -i 10
-```
