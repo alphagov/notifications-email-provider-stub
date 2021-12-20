@@ -9,6 +9,7 @@ applications:
 
   routes:
     - route: notify-email-provider-stub-{{ environment }}.cloudapps.digital
+    - route: notify-email-provider-stub-{{ environment }}.apps.internal
 
   env:
     NOTIFICATION_QUEUE_PREFIX: '{{ environment }}'
