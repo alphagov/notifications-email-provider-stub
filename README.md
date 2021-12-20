@@ -32,6 +32,6 @@ make preview cf-deploy
 You will need to set the environment variable `SES_STUB_URL` for API apps in your chosen environment, for example:
 
 ```
-cf set-env APP-NAME SES_STUB_URL https://notify-email-provider-stub-staging.cloudapps.digital/ses
+cf set-env APP-NAME SES_STUB_URL http://notify-email-provider-stub-staging.apps.internal:8080/ses
 cf restage APP-NAME
 ```
