@@ -38,7 +38,7 @@ generate-manifest:
 	    --format=yaml \
 	    <(${DECRYPT_CMD} ${NOTIFY_CREDENTIALS}/credentials/${CF_SPACE}/paas/environment-variables.gpg) 2>&1
 
-.PHONY: cf-push
+.PHONY: cf-deploy
 cf-deploy:
 	$(if ${CF_SPACE},,$(error Must specify CF_SPACE))
 	cf target -o ${CF_ORG} -s ${CF_SPACE}
