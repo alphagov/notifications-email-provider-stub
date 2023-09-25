@@ -7,6 +7,8 @@ applications:
   buildpacks:
     - python_buildpack
 
+  stack: cflinuxfs4
+
   routes:
     - route: notify-email-provider-stub-{{ environment }}.cloudapps.digital
     - route: notify-email-provider-stub-{{ environment }}.apps.internal
