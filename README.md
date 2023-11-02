@@ -14,6 +14,8 @@ When this stub app receives a POST request from the API to send an email, it wil
 ```
 make bootstrap
 
+source .envrc  # not needed if you have direnv installed
+
 NOTIFICATION_QUEUE_PREFIX=<your-queue-prefix> make run
 ```
 Then visit http://localhost:6301/ to see it running

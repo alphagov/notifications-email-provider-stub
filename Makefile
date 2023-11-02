@@ -24,9 +24,11 @@ build-with-docker:
 .PHONY: run-with-docker
 run-with-docker: build-with-docker
 	$(if ${NOTIFICATION_QUEUE_PREFIX},,$(error Must specify NOTIFICATION_QUEUE_PREFIX))
-	docker run \
+	@docker run \
 		-p ${PORT}:${PORT} \
 		-e PORT=${PORT} \
+		-e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} \
+		-e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} \
 		-e NOTIFICATION_QUEUE_PREFIX=${NOTIFICATION_QUEUE_PREFIX} \
 		email-provider-stub
 
