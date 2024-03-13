@@ -20,20 +20,10 @@ NOTIFICATION_QUEUE_PREFIX=<your-queue-prefix> make run
 ```
 Then visit http://localhost:6301/ to see it running
 
-## To deploy the application
-
-To deploy:
-
-```
-make bootstrap
-make preview cf-deploy
-```
-
 ### How to make the API use this email provider stub
 
 You will need to set the environment variable `SES_STUB_URL` for API apps in your chosen environment, for example:
 
 ```
-cf set-env APP-NAME SES_STUB_URL http://notify-email-provider-stub-staging.apps.internal:8080/ses
-cf restage APP-NAME
+SES_STUB_URL=http://notify-email-provider-stub-staging.apps.internal:8080/ses
 ```
