@@ -5,9 +5,19 @@ PORT := 6301
 CF_APP ?= notify-email-provider-stub
 CF_ORG ?= govuk-notify
 
+.PHONY: freeze-requirements
+freeze-requirements: ## create static requirements.txt
+	pip3 install --upgrade pip-tools
+	python -c "from notifications_utils.version_tools import copy_config; copy_config()"
+	pip-compile requirements.in
+
+.PHONY: bump-utils
+bump-utils:  # Bump notifications-utils package to latest version
+	python -c "from notifications_utils.version_tools import upgrade_version; upgrade_version()"
+
 .PHONY: bootstrap
 bootstrap:
-	pip install -r requirements_for_test.txt
+	pip install -r requirements.txt
 
 .PHONY: run
 run:
