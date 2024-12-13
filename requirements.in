@@ -1,0 +1,2 @@
+celery[sqs]==5.4.0
+notifications-utils @ git+https://github.com/alphagov/notifications-utils.git@89.2.0
