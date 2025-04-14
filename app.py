@@ -7,13 +7,15 @@ import uuid
 from celery import Celery
 from flask import Flask, jsonify
 
-QUEUE_NAME = os.environ['NOTIFICATION_QUEUE_PREFIX'] + "ses-callbacks"
+QUEUE_NAME = "ses-callbacks"
+QUEUE_PREFIX = os.environ['NOTIFICATION_QUEUE_PREFIX']
 
 
 CONFIG = {
     'BROKER_URL': 'sqs://',
     'BROKER_TRANSPORT_OPTIONS': {
         'region': 'eu-west-1',
+        'queue_name_prefix': QUEUE_PREFIX,
         'visibility_timeout': 310,
     },
 }
