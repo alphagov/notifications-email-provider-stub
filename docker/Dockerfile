@@ -6,9 +6,10 @@ RUN apt-get update \
     libcurl4 \
     libcurl4-openssl-dev \
     libssl-dev \
-    curl && \
-    apt-get -y clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/*
+    curl \
+    git \
+    && apt-get -y clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/*
 
 WORKDIR /app
 
