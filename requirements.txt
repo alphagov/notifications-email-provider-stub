@@ -109,7 +109,7 @@ pyyaml==6.0.2
     # via notifications-utils
 redis==5.2.0
     # via flask-redis
-requests==2.32.3
+requests==2.32.4
     # via
     #   govuk-bank-holidays
     #   notifications-utils
