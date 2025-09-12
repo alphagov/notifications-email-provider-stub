@@ -2,9 +2,6 @@ SHELL := /bin/bash
 
 PORT := 6301
 
-CF_APP ?= notify-email-provider-stub
-CF_ORG ?= govuk-notify
-
 .PHONY: freeze-requirements
 freeze-requirements: ## create static requirements.txt
 	pip3 install --upgrade pip-tools
