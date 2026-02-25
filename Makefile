@@ -19,7 +19,7 @@ bootstrap:
 .PHONY: run
 run:
 	$(if ${NOTIFICATION_QUEUE_PREFIX},,$(error Must specify NOTIFICATION_QUEUE_PREFIX))
-	FLASK_DEBUG=true flask run -p ${PORT}
+	flask run -p ${PORT}
 
 .PHONY: build-with-docker
 build-with-docker:
