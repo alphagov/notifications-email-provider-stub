@@ -97,7 +97,7 @@ pycurl==7.45.7
     # via
     #   celery
     #   kombu
-pypdf==6.7.5
+pypdf==6.8.0
     # via notifications-utils
 python-dateutil==2.9.0.post0
     # via
